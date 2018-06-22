@@ -10,8 +10,8 @@ class SessionType(models.Model):
 
 
 class Session(models.Model):
-    student = models.ForeignKey(Student)
-    date = models.DateTimeField(default=datetime.datetime.now())
+    student = models.ForeignKey(Student, on_delete=models.PROTECT)
+    date = models.DateTimeField(default=datetime.datetime.now)
 
     DURATION_CHOICES = [
         (datetime.timedelta(minutes=m), '{} minutes'.format(m))
