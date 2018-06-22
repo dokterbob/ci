@@ -4,7 +4,7 @@ import pprint
 
 
 def submit_form(id, data):
-    url = 'https://docs.google.com/forms/d/{}/formResponse'.format(id)
+    url = 'https://docs.google.com/forms/d/e/{}/formResponse'.format(id)
 
     response = requests.post(url, data=data)
 
@@ -56,7 +56,7 @@ def submit_mentoring_form(
 
     pprint.pprint(data)
 
-    # submit_form('1FAIpQLSfUCSyObKZDjjtAhIgc8r5FrA4VSUflq1dMK6QyYMv33LeEDQ', data)
+    submit_form('1FAIpQLSfUCSyObKZDjjtAhIgc8r5FrA4VSUflq1dMK6QyYMv33LeEDQ', data)
 
 
 def fill_mentoring_form():
