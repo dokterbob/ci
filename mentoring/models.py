@@ -8,16 +8,15 @@ from students.models import Student
 class SessionType(models.Model):
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.name
+
 
 class Session(models.Model):
     student = models.ForeignKey(Student, on_delete=models.PROTECT)
     date = models.DateTimeField(default=datetime.datetime.now)
 
-    DURATION_CHOICES = [
-        (datetime.timedelta(minutes=m), '{} minutes'.format(m))
-        for m in (15, 30, 45)
-    ]
-    duration = models.DurationField(choices=DURATION_CHOICES)
+    duration = models.DurationField()
 
     session_type = models.ManyToManyField(SessionType)
 
@@ -35,3 +34,6 @@ class Session(models.Model):
     modified = models.DateTimeField(auto_now=True)
 
     notes = models.TextField()
+
+    def __str__(self):
+        return '{0}: {1}'.format(self.student, self.date.date())
