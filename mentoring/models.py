@@ -33,3 +33,5 @@ class Session(models.Model):
 
     added = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
+
+    notes = models.TextField()
